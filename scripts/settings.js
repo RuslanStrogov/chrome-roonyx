@@ -35,7 +35,7 @@ function init() {
     // Message and button containers
     var lout = $("#trello_helper_loggedout");
     var lin = $("#trello_helper_loggedin");
-    var APP_KEY = '*app_key*';
+    var APP_KEY = 'bb0113ca792a37ba1b40edf69dd9ace4';
 
     // Log in button
     $("#trello_helper_login").click(function () {
