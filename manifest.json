@@ -23,12 +23,15 @@
                 "scripts/client.js",
                 "scripts/key.js",
                 "scripts/settings.js",
-                "scripts/hashSearch.js",
-                "scripts/background.js"
+                "scripts/hashSearch.js"
             ],
             "run_at": "document_idle",
             "matches": [ "<all_urls>" ]
         }
     ],
+    "background": {
+      "scripts": ["scripts/background.js"],
+      "persistent": false
+    },
     "permissions": ["storage", "identity", "tabs", "<all_urls>"]
 }
