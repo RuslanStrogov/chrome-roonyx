@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "Roonyx VTIGER optimizer",
+    "version": "0.0.1",
+    "description": "Создание доски в Trello и чата в Discord",
+    "icons": {
+        "64": "icon.png"
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "Roonyx VTIGER optimizer",
+        "default_popup": "popup.html"
+    },
+    "web_accessible_resources": [
+        "settings/index.html",
+        "popup.html"
+    ],
+    "options_page": "settings/index.html",
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/jquery-2.1.1.js",
+                "scripts/client.js",
+                "scripts/key.js",
+                "scripts/settings.js",
+                "scripts/hashSearch.js"
+            ],
+            "run_at": "document_idle",
+            "matches": [ "<all_urls>" ]
+        }
+    ],
+    "background": {
+      "scripts": ["scripts/background.js"],
+      "persistent": false
+    },
+    "permissions": ["storage", "identity", "tabs", "<all_urls>"]
+}

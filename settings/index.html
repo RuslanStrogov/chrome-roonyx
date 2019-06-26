@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" typ="text/css" href="../css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Настройки Roonyx Chrome Helper</title>
+    <script src="../scripts/jquery-2.1.1.js"></script>
+    <script src="../scripts/hashSearch.js"></script>
+    <script src="../scripts/client.js"></script>
+    <script src="../scripts/settings.js"></script>
+</head>
+<body>
+<div class="native">
+    <div class="row">
+        <div class="large-12 columns">
+            <h1>Roonyx Chrome Helper</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="panel" id="trello_helper_loggedout">
+                <p>Чтобы пользоваться расширением, вам необходимо авторизоваться в Trello.</p>
+    
+                <a href="#" class="medium success button" id="trello_helper_login">Войти в Trello</a><br/>
+            </div>
+            <div class="panel" id="trello_helper_loggedin" style="display: none">
+                <p>Вы авторизованы.</p>
+                <p><a id="trello_create_card" href="#">Create Card</a></p>
+                <a href="#" class="medium success button" id="trello_helper_logout">Выйти</a><br/>
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
