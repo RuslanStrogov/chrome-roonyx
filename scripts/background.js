@@ -33,7 +33,7 @@ chrome.tabs.getSelected(null, function(tab) {
 
 // Trello Creating Card
 
-var APP_KEY = 'bb0113ca792a37ba1b40edf69dd9ace4';
+var APP_KEY = '*app_key*';
 var myList = '5d1089c67893fe7afb014694';
 
 function trelloInit() {
