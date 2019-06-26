@@ -17,9 +17,23 @@ chrome.extension.onMessage.addListener(
 
     });
 
+var myProject;
+
+chrome.extension.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        window.myProject = $(request.content).find(".projectname").text(); 
+    }
+);
+    
+chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.executeScript(tab.id, {
+        code: "chrome.extension.sendMessage({content: document.body.innerHTML}, function(response) { console.log('success'); });"
+    }, function() { console.log('done'); });
+});
+
 // Trello Creating Card
 
-var APP_KEY = 'bb0113ca792a37ba1b40edf69dd9ace4';
+var APP_KEY = '*app_key*';
 var myList = '5d1089c67893fe7afb014694';
 
 function trelloInit() {
@@ -32,28 +46,21 @@ function trelloInit() {
 var creationSuccess = function (data) {
     console.log('Card created successfully.');
     console.log(JSON.stringify(data, null, 2));
+    console.log(myProject)
 };
 
 var newCard = {
-    name: 'Chrome Extension Card', 
+    name: myProject, 
     desc: 'This is the description of our new card.',
     // Place this card at the top of our list 
     idList: myList,
     pos: 'top'
 };
 
-function popup() {
-    $("#trello_create_card").click(function () {
-        console.log('Success!');
-    });
-}
-
 function createCard() {
     $("#trello_create_card").click(function () {
         trelloInit();
-        console.log('Board creating started..');
-        Trello.post('/cards/', newCard, creationSuccess);       
-        console.log('Board created..');
+        Trello.post('/cards/', newCard, creationSuccess);  
     });
 }
     
