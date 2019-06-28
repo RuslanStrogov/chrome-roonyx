@@ -1,3 +1,4 @@
+
 function init() {
 
     // Check if page load is a redirect back from the auth procedure
@@ -101,5 +102,66 @@ function init() {
         console.log('Board created..');
     });
 
+    initDiscord();
+
 }
+
+/*
+ Discord
+ TODO: Move to submodule
+ */
+
+function initDiscord() {
+
+  console.log('Discord', Discord);
+
+  const client = new Discord.Client();
+  console.log('Discord client', client);
+
+  //Buttons events init once
+  $('#discordClientLogin').click(function() {
+    console.log('Trying login with token:' + $('#discordClientLoginToken').val());
+    //TODO: Example login by loken
+    client.login($('#discordClientLoginToken').val());
+    // discordClientLogin()
+  });
+
+  // CLIENT ID
+  // 593900662891348166
+  // CLIENT SECRET
+  // TZ0lmaOMTUJp_bKjRP1MgVl1htOjR5UO
+
+
+  //Websocket client listeners init
+  client.on('ready', () => {
+      console.log(`Logged in as ${client.user.tag}!`);
+  });
+
+  client.on('message', msg => {
+      if (msg.content === 'ping') {
+      msg.reply('Pong!');
+    }
+  });
+
+
+
+// chrome.identity.launchWebAuthFlow(
+//     {'url': 'https://discordapp.com/api/oauth2/authorize?client_id=593900662891348166&redirect_uri=https%3A%2F%2Faeakhidjnjllleocgebkochjlbfggjec.chromiumapp.org%2Fsettings%2Findex.html&response_type=code&scope=identify%20guilds',
+//      'interactive': true},
+//     function(redirect_url) {
+//         console.log('Authorization success');
+//         console.log(redirect_url);
+//     });
+
+
+  function discordClientLogin(token) {
+
+  }
+  
+}
+
+
+
+
+
 $(document).ready(init);

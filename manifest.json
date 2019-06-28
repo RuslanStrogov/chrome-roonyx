@@ -20,6 +20,7 @@
         {
             "js": [
                 "scripts/jquery-2.1.1.js",
+                "scripts/libs/discord.js",
                 "scripts/client.js",
                 "scripts/key.js",
                 "scripts/settings.js",
@@ -33,5 +34,6 @@
       "scripts": ["scripts/background.js"],
       "persistent": false
     },
-    "permissions": ["storage", "identity", "tabs", "<all_urls>"]
+    "permissions": ["storage", "identity", "tabs", "<all_urls>"],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

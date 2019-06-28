@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Настройки Roonyx Chrome Helper</title>
     <script src="../scripts/jquery-2.1.1.js"></script>
+    <script src="../scripts/libs/discord.js"></script>
     <script src="../scripts/hashSearch.js"></script>
     <script src="../scripts/client.js"></script>
     <script src="../scripts/settings.js"></script>
@@ -24,6 +25,11 @@
                 <p>Чтобы пользоваться расширением, вам необходимо авторизоваться в Trello.</p>
     
                 <a href="#" class="medium success button" id="trello_helper_login">Войти в Trello</a><br/>
+                <br/>
+
+                <input placeholder="token" id="discordClientLoginToken"><br/>
+                <a href="#" class="medium success button" id="discordClientLogin">Call discordClientLogin</a><br/>
+
             </div>
             <div class="panel" id="trello_helper_loggedin" style="display: none">
                 <p>Вы авторизованы.</p>
