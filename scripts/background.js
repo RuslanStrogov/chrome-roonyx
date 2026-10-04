@@ -65,3 +65,26 @@ function createCard() {
 }
     
 $(document).ready(createCard);
+// ===== EASTER EGG: Konami Code =====
+(function() {
+  const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let seq = [];
+  
+  document.addEventListener('keydown', (e) => {
+    seq.push(e.key);
+    seq = seq.slice(-KONAMI.length);
+    
+    if (JSON.stringify(seq) === JSON.stringify(KONAMI)) {
+      seq = [];
+      document.body.style.transition = 'all 1s';
+      document.body.style.transform = 'rotate(360deg)';
+      setTimeout(() => document.body.style.transform = '', 1000);
+      
+      const egg = document.createElement('div');
+      egg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:48px;z-index:9999;text-shadow:0 0 20px gold;';
+      egg.textContent = '🕶️ ROONYX SECRET UNLOCKED!';
+      document.body.appendChild(egg);
+      setTimeout(() => egg.remove(), 3000);
+    }
+  });
+})();
